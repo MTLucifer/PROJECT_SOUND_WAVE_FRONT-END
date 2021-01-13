@@ -17,54 +17,56 @@
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </div>
-                        <form class="register-form " novalidate>
-                            <label>Username</label>
+                        <form class="register-form " novalidate [formGroup]="createUserForm" (ngSubmit)="createUser()">
+                            <label for="validationCustom03">Username</label>
                             <div class="input-group form-group-no-border"
-                                 [ngClass]="{'input-group-focus':focus===true}">
+                                 >
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">
                                       <i class="nc-icon nc-badge"></i>
                                   </span>
                                 </div>
 
-                                <input type="text" class="form-control" placeholder="Username" (focus)="focus=true"
-                                       (blur)="focus=false">
+                                <input type="text" class="form-control" formControlName="username" placeholder="Username"  id="validationCustom02" required>
+                                <div class="invalid-feedback">
+                                    Please enter your username.
+                                </div>
                             </div>
 
-                            <label>Password</label>
+                            <label for="validationCustom03">Password</label>
                             <div class="input-group form-group-no-border"
-                                 [ngClass]="{'input-group-focus':focus1===true}">
+                                 >
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true"
-                                       (blur)="focus1=false">
+                                <input type="text" class="form-control" formControlName="password" placeholder="Password"  id="validationCustom03" required>
+                                <div class="invalid-feedback">
+                                    Please enter your password.
+                                </div>
                             </div>
 
-                            <label>Re-enter Password</label>
-                            <div class="input-group form-group-no-border"
-                                 [ngClass]="{'input-group-focus':focus1===true}">
+                            <label for="validationCustom04">Re-enter Password</label>
+                            <div class="input-group form-group-no-border">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">
                                       <i class="nc-icon nc-key-25"></i>
                                   </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Re-Password" (focus)="focus1=true"
-                                       (blur)="focus1=false">
+                                <input type="text" class="form-control" placeholder="Re-Password"  id="validationCustom04" required>
+                                <div class="registrationFormAlert" id="divCheckPasswordMatch">
+                                </div>
                             </div>
 
                             <label for="validationCustom05">Phone Number</label>
-                            <div class="input-group form-group-no-border"
-                                 [ngClass]="{'input-group-focus':focus1===true}">
+                            <div class="input-group form-group-no-border">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text">
                                       <i class="nc-icon nc-mobile"></i>
                                   </span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Phone" (focus)="focus1=true"
-                                       (blur)="focus1=false" id="validationCustom05" required>
+                                <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Phone"  id="validationCustom05" required>
                                 <div class="invalid-feedback">
                                     Please provide your phone number.
                                 </div>
@@ -85,7 +87,7 @@
                 </div>
             </div>
             <div class="footer register-footer text-center">
-                <h6>&copy;{{test | date: 'yyyy'}}, made with 3000 <i class="fa fa-heart heart"></i> by Avengers</h6>
+                <h6>&copy;Made with 3000 <i class="fa fa-heart heart"></i> by Avengers</h6>
             </div>
         </div>
     </div>
